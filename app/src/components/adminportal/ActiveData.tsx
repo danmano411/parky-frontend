@@ -181,31 +181,31 @@ const ActiveData:React.FC<ActiveDataProps> = ({
                             </div>
                             <div className='flex-1 flex flex-row justify-center items-center'>
                                 { page === 1 &&
-                                    (activeData.dlupload !== "Incomplete" ?
+                                    (activeData.dlupload !== "Incomplete" && activeData.dluploadimage ?
                                         <MyImage alt='drivers license' src={activeData.dluploadimage}/>
                                     :
-                                        <h1 className='text-xl text-neutral-400 font-semibold'>Upload Incomplete</h1>
+                                        <h1 className='text-xl text-neutral-400 font-semibold'>{activeData.dlupload === "Incomplete" ? "Upload Incomplete" : "No File Uploaded"}</h1>
                                     )
                                 }
                                 { page === 2 &&
-                                    (activeData.insuranceupload !== "Incomplete" ?
+                                    (activeData.insuranceupload !== "Incomplete" && activeData.insuranceuploadimage ?
                                         <MyImage alt='insurance' src={activeData.insuranceuploadimage}/>
                                     :
-                                        <h1 className='text-xl text-neutral-400 font-semibold'>Upload Incomplete</h1>
+                                        <h1 className='text-xl text-neutral-400 font-semibold'>{activeData.insuranceupload === "Incomplete" ? "Upload Incomplete" : "No File Uploaded"}</h1>
                                     )
                                 }
                                 { page === 3 &&
-                                    (activeData.car1registration !== "Incomplete" ?
-                                        <MyImage alt='drivers license' src={activeData.car1registrationimage}/>
+                                    (activeData.car1registration !== "Incomplete" && activeData.car1registrationimage ?
+                                        <MyImage alt='car 1 registration' src={activeData.car1registrationimage}/>
                                     :
-                                        <h1 className='text-xl text-neutral-400 font-semibold'>Upload Incomplete</h1>
+                                        <h1 className='text-xl text-neutral-400 font-semibold'>{activeData.car1registration === "Incomplete" ? "Upload Incomplete" : "No File Uploaded"}</h1>
                                     )
                                 }
                                 { page === 4 &&
-                                    (activeData.car2registration !== "Incomplete" ?
-                                        <MyImage alt='drivers license' src={activeData.car2registrationimage}/>
+                                    (activeData.car2registration !== "Incomplete" && activeData.car2registrationimage ?
+                                        <MyImage alt='car 2 registration' src={activeData.car2registrationimage}/>
                                     :
-                                        <h1 className='text-xl text-neutral-400 font-semibold'>Upload Incomplete</h1>
+                                        <h1 className='text-xl text-neutral-400 font-semibold'>{activeData.car2registration === "Incomplete" ? "Upload Incomplete" : "No File Uploaded"}</h1>
                                     )
                                 }
                             </div>
