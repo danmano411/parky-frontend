@@ -14,7 +14,6 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { TableFooter, TablePagination } from '@mui/material';
-import Link from 'next/link';
 import getStatus from '@/app/globals';
 
 const r:recordData = {approved: 0, pending: 0, incomplete: 0}
@@ -237,7 +236,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                       <CellData>Car {index+1} Color: {data.color}</CellData>
                       <CellData>Car {index+1} Plate: {data.plate}</CellData>
                     </div>
-                    <CellData dynamicBackground={data.registration} type={`${'registration'+(index+1)}`} userID={row.id}>Car {index+1} Registration: {data.registration}</CellData>
+                    <CellData dynamicBackground={data.registration}>Car {index+1} Registration: {data.registration}</CellData>
                   </div>
                 ))}
               </div>
@@ -249,8 +248,8 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                   <CellData dynamicBackground={row.registrationInfo.form3completed ? 'Completed' : 'Incomplete'}>Form 3: {row.registrationInfo.form3completed ? 'Completed' : 'Incomplete'}</CellData>
                   <CellData dynamicBackground={row.registrationInfo.form4completed ? 'Completed' : 'Incomplete'}>Form 4: {row.registrationInfo.form4completed ? 'Completed' : 'Incomplete'}</CellData>
                   <CellData>DL Issue Date: {row.registrationInfo.dlissueDate}</CellData>
-                  <CellData dynamicBackground={row.registrationInfo.dlupload} type='driverslicense' userID={row.id}>DL Upload: {row.registrationInfo.dlupload}</CellData>
-                  <CellData dynamicBackground={row.registrationInfo.insuranceupload} type='insurance' userID={row.id}>Insurance Upload: {row.registrationInfo.insuranceupload}</CellData>
+                  <CellData dynamicBackground={row.registrationInfo.dlupload}>DL Upload: {row.registrationInfo.dlupload}</CellData>
+                  <CellData dynamicBackground={row.registrationInfo.insuranceupload}>Insurance Upload: {row.registrationInfo.insuranceupload}</CellData>
                   <CellData dynamicBackground={row.registrationInfo.zoneselection ? 'Completed' : 'Incomplete'}>Zone Selection: {row.registrationInfo.zoneselection ? 'Completed' : 'Incomplete'}</CellData>
                   <CellData>Assigned Zone: {row.registrationInfo.zone !== null ? row.registrationInfo.zone : 'None'}</CellData>
                   <CellData>Pass Type: {row.registrationInfo.passtype}</CellData>
@@ -300,33 +299,21 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 
 interface CellDataProps {
   dynamicBackground?: string
-  userID?: string
-  type?: string
   children: React.ReactNode
 }
 
-const CellData:React.FC<CellDataProps> = ({children, dynamicBackground, userID, type}) => {
+const CellData:React.FC<CellDataProps> = ({children, dynamicBackground}) => {
   if (dynamicBackground){
-    if (dynamicBackground === "Pending" || dynamicBackground === "Approved"){
-      return (
-        <Link target='_blank' href={`/adminportal?userID=${userID}&type=${type}`} className={`p-2 w-[99%] text-center border-2 border-black shadow-md rounded-md text-sm cursor-pointer bg-opacity-100 hover:bg-opacity-70
-          transition duration-100 active:bg-opacity-100 ${dynamicBackground==="Pending" ? 'bg-yellow-100 active:bg-yellow-300' : 'bg-green-100 active:bg-green-300'} `}>
-          {children}
-        </Link>
-      )
-    } else {
-      return (
-        <h1 className={`p-2 w-[99%] text-center border rounded-md text-sm cursor-pointer bg-opacity-100 hover:bg-opacity-70
-          transition duration-400
-          ${dynamicBackground==='Completed' ? 'bg-green-100' : 'bg-red-100'}`}>
-          {children}
-        </h1>
-      )
-    }
+    return (
+      <h1 className={`p-2 w-[99%] text-center border rounded-md text-sm
+        ${dynamicBackground === 'Completed' || dynamicBackground === 'Approved' ? 'bg-green-100' :
+          dynamicBackground === 'Pending' ? 'bg-yellow-100' : 'bg-red-100'}`}>
+        {children}
+      </h1>
+    )
   }
   return (
-    <h1 className='p-2 w-[99%] text-center border rounded-md text-sm cursor-pointer
-      hover:bg-neutral-50 transition duration-400 bg-white'>
+    <h1 className='p-2 w-[99%] text-center border rounded-md text-sm hover:bg-neutral-50 transition duration-400 bg-white'>
       {children}
     </h1>
   )
