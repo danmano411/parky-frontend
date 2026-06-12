@@ -39,34 +39,33 @@ const AdminPortal = () => {
         .then(response => {
             setStudentData(response.data)
             setProgress("loaded");
-
-            const userID = urlParams.get('userID');
-            if (userID){
-                for (let i = 0; i < response.data.length; i++){
-                    const data:userData = response.data[i];
-                    if (data.id===userID){
-                        setActiveData(data);
-                        break;
-                    }
-                }
-            }
-
-            const pageParam = urlParams.get("type")
-            if (pageParam) {
-                if (pageParam === "insurance")
-                    setPage(2)
-                else if (pageParam === "registration1")
-                    setPage(3)
-                else if (pageParam === "registration2")
-                    setPage(4)
-                else setPage(1)
-            }
         })
         .catch(error => {
             console.log("Error: ", error)
             setProgress("error")
         })
     }, [])
+
+    useEffect(() => {
+        if (!studentData) return;
+
+        const userID = urlParams.get('userID');
+        if (userID) {
+            const found = studentData.find((d: userData) => d.id === userID);
+            if (found) setActiveData(found);
+        }
+
+        const pageParam = urlParams.get("type")
+        if (pageParam) {
+            if (pageParam === "insurance")
+                setPage(2)
+            else if (pageParam === "registration1")
+                setPage(3)
+            else if (pageParam === "registration2")
+                setPage(4)
+            else setPage(1)
+        }
+    }, [studentData, urlParams])
 
     const [page, setPage] = useState(1);
 
