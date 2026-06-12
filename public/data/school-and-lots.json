@@ -1,0 +1,53 @@
+[
+  {
+    "type": "FeatureCollection",
+    "features": [{
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-80.17310, 40.37290],
+          [-80.17020, 40.37290],
+          [-80.17020, 40.37580],
+          [-80.17310, 40.37580],
+          [-80.17310, 40.37290]
+        ]]
+      },
+      "properties": { "name": "Band Zone" }
+    }]
+  },
+  {
+    "type": "FeatureCollection",
+    "features": [{
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-80.17010, 40.37420],
+          [-80.16710, 40.37420],
+          [-80.16710, 40.37720],
+          [-80.17010, 40.37720],
+          [-80.17010, 40.37420]
+        ]]
+      },
+      "properties": { "name": "Front Zone" }
+    }]
+  },
+  {
+    "type": "FeatureCollection",
+    "features": [{
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-80.16700, 40.37280],
+          [-80.16390, 40.37280],
+          [-80.16390, 40.37620],
+          [-80.16700, 40.37620],
+          [-80.16700, 40.37280]
+        ]]
+      },
+      "properties": { "name": "Stadium Zone" }
+    }]
+  }
+]

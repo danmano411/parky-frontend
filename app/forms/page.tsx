@@ -39,7 +39,7 @@ const Forms = () => {
             }
         }, 10000)
 
-        axios.get("http://localhost:5000/api/student-data")
+        axios.get(`${process.env.NEXT_PUBLIC_BASE_PATH}/data/student-data.json`)
         .then(response => {
             setData(response.data)
             setProgress("loaded")

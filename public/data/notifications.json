@@ -1,0 +1,37 @@
+[
+  {
+    "elapsedTime": "2 days ago",
+    "header": "Application Received",
+    "text": "Your 2024-2025 parking pass application has been received and is under review.",
+    "type": "positive",
+    "read": false
+  },
+  {
+    "elapsedTime": "3 days ago",
+    "header": "Document Required",
+    "text": "Please upload a clear photo of your driver's license to complete your application.",
+    "type": "warning",
+    "read": false
+  },
+  {
+    "elapsedTime": "1 week ago",
+    "header": "Registration Open",
+    "text": "Parking pass registration for the 2024-2025 school year is now open. Complete all four forms to apply.",
+    "type": "positive",
+    "read": true
+  },
+  {
+    "elapsedTime": "1 week ago",
+    "header": "Zone Selection",
+    "text": "Remember to rank your preferred parking zones after completing the vehicle information form.",
+    "type": "warning",
+    "read": true
+  },
+  {
+    "elapsedTime": "2 weeks ago",
+    "header": "Reminder",
+    "text": "Incomplete applications will not be reviewed. Ensure all uploads are submitted before the deadline.",
+    "type": "negative",
+    "read": true
+  }
+]

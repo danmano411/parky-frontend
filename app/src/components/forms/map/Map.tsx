@@ -89,7 +89,7 @@ const Map:React.FC<MapProps> = ({
     }, [page])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/school-and-lots')
+        axios.get(`${process.env.NEXT_PUBLIC_BASE_PATH}/data/school-and-lots.json`)
         .then(response => {
             // console.log(response)
             setGeoData(response.data)
