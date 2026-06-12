@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react'
+import Link from 'next/link'
 import Profile from './Profile';
 import SidebarElement from './SidebarElement';
 
@@ -31,9 +32,10 @@ const AdminSidebar:React.FC<AdminSidebarProps> = ({
             <div className='flex flex-col justify-center gap-8 items-center w-full px-9'>
                 <SidebarElement active={index===1} icon={<RiTableView size={40}/>} path='/admintable' label='Student Data'/>
                 <SidebarElement active={index===2} icon={<MdApproval size={40}/>} path='/adminportal' label='Approval Portal'/>
-                <SidebarElement active={index===3} icon={<LuClipboard size={40}/>} path='/adminforms' label='Form Editing'/>
-                <SidebarElement active={index===4} icon={<MdOutlineMail size={40}/>} path='/admininbox' label='Inbox'/>
+                <SidebarElement active={false} disabled icon={<LuClipboard size={40}/>} path='/adminforms' label='Form Editing'/>
+                <SidebarElement active={false} disabled icon={<MdOutlineMail size={40}/>} path='/admininbox' label='Inbox'/>
             </div>
+            <Link href="/" className='text-xs text-neutral-400 hover:text-neutral-600 transition-colors text-center px-2'>← Return to testing screen</Link>
             <div className='w-full h-72 flex flex-col justify-center items-center relative'>
                 <Image alt='MiniLogo' src={MiniLogo} quality={100} priority={true}/>
             </div>

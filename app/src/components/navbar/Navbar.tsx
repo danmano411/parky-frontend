@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react'
+import Link from 'next/link'
 import Profile from './Profile'
 import Logo from './Logo'
 import MiddleNav from './MiddleNav'
@@ -34,7 +35,10 @@ const Navbar:React.FC<NavbarProps> = ({
           justify-between
           items-center
       '>
-          <Logo />
+          <div className='flex flex-col items-start gap-1'>
+              <Logo />
+              <Link href="/" className='text-xs text-neutral-400 hover:text-neutral-600 transition-colors'>← Return to testing screen</Link>
+          </div>
           <MiddleNav />
           <div className='flex flex-col '>
               <Profile status={status} fullname={fullname}/>
