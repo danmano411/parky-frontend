@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 
 import { AdminSidebar } from '../src/components/adminsidebar';
@@ -84,4 +84,10 @@ const AdminPortal = () => {
     )
 }
 
-export default AdminPortal
+const AdminPortalPage = () => (
+    <Suspense>
+        <AdminPortal />
+    </Suspense>
+)
+
+export default AdminPortalPage

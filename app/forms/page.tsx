@@ -1,9 +1,12 @@
 'use client';
 
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic';
 
-import { PassInformation, ApplicantInformation, RulesAndRegulations, VehicleRegistration, CheckList, Uploads, ParkingZones } 
+import { PassInformation, ApplicantInformation, RulesAndRegulations, VehicleRegistration, CheckList, Uploads }
 from '../src/components/forms';
+
+const ParkingZones = dynamic(() => import('../src/components/forms/ParkingZones'), { ssr: false });
 import { Navbar } from '../src/components/navbar';
 import axios from 'axios';
 import getStatus, { StudentIndex } from '../globals';

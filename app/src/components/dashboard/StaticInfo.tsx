@@ -95,9 +95,9 @@ const StaticInfo:React.FC<StaticInfoProps> = ({
         :
           <div className='h-full flex flex-row justify-center items-center'>
             {progress==='loaded' && <h1 className='text-lg text-neutral-400 font-semibold'>
-              Click "<Link href='/forms' className='text-blue-400 decoration-2 underline underline-offset-4 hover:text-blue-300 active:text-blue-500'>
+              Click &quot;<Link href='/forms' className='text-blue-400 decoration-2 underline underline-offset-4 hover:text-blue-300 active:text-blue-500'>
               Forms
-              </Link>" Tab Above to Enter Information</h1>}
+              </Link>&quot; Tab Above to Enter Information</h1>}
             {progress==='error' && <h1 className='text-lg text-neutral-400 font-semibold'>
               Error. Failed to Fetch Data.
             </h1>}
@@ -157,9 +157,9 @@ const StaticInfo:React.FC<StaticInfoProps> = ({
         :
           <div className='w-full p-10 flex-1 flex flex-row justify-center items-center'>
             {progress==='loaded' && <h1 className='text-lg text-neutral-400 font-semibold'>
-              Click "<Link href='/forms' className='text-blue-400 decoration-2 underline underline-offset-4 hover:text-blue-300 active:text-blue-500'>
+              Click &quot;<Link href='/forms' className='text-blue-400 decoration-2 underline underline-offset-4 hover:text-blue-300 active:text-blue-500'>
               Forms
-              </Link>" Tab Above to Enter Information
+              </Link>&quot; Tab Above to Enter Information
             </h1>}
           </div>
         }
